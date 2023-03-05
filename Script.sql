@@ -103,5 +103,17 @@ select *
   join tb_pedidos p
     on (c.id_cliente = p.id_cliente) 
 
+select *
+  from tb_produtos p
+  left 
+  join tb_imagens i
+    on (p.id_produto = i.id_produto)
 
+    
+/* RIGHT JOIN */  
+select *
+  from tb_clientes c
+ right
+  join tb_pedidos p
+    on (p.id_cliente = c.id_cliente) 
 
