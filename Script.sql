@@ -48,3 +48,29 @@ INSERT INTO tb_imagens(id_produto, url_imagem) VALUES (2, 'smarttv_1.jpg'), (2, 
 INSERT INTO tb_imagens(id_produto, url_imagem) VALUES (3, 'smartphone_1.jpg');
 
 
+/* Relacionamento Muitoas para Muitos 
+ * 
+ *   tb_clietes
+ *   tb_pedidos
+ *   tb_pedidos_produtos
+ * 
+ * */
+create table tb_clientes(
+	id_cliente int not null primary key auto_increment,
+	nome varchar(100) not null,
+	idade int(3) not null
+);
+
+create table tb_pedidos(
+	id_pedido int not null primary key auto_increment,
+	id_cliente int not null,
+	data_hora datetime not null default current_timestamp,
+	foreign key(id_cliente) references tb_clientes(id_cliente)
+);
+
+create table tb_pedidos_produtos(
+	id_pedido int not null,
+	id_produto int not null,
+	foreign key(id_pedido) references tb_pedidos(id_pedido),
+	foreign key(id_produto) references tb_produtos(id_produto)
+);
