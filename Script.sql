@@ -117,3 +117,63 @@ select *
   join tb_pedidos p
     on (p.id_cliente = c.id_cliente) 
 
+    
+    
+/* INNER JOIN */      
+INSERT INTO tb_produtos(produto, valor) VALUES ('HD Externo Portátil Seagate Expansion 1TB USB 3.0', 274.90);
+
+select * 
+  from tb_pedidos pe 
+  left 
+  join tb_pedidos_produtos pp 
+    on (pe.id_pedido = pp.id_pedido);
+
+select * 
+  from tb_pedidos 
+  left 
+  join tb_pedidos_produtos 
+    ON (tb_pedidos.id_pedido = tb_pedidos_produtos.id_pedido) 
+  left 
+  join tb_produtos 
+    on (tb_pedidos_produtos.id_produto = tb_produtos.id_produto)
+
+select * 
+  from tb_pedidos 
+ right 
+  join tb_pedidos_produtos 
+    on (tb_pedidos.id_pedido = tb_pedidos_produtos.id_pedido) 
+  left 
+  join tb_produtos 
+    on (tb_pedidos_produtos.id_produto = tb_produtos.id_produto)
+
+select * 
+  from tb_pedidos pe 
+ inner 
+  join tb_pedidos_produtos pp
+    on (pe.id_pedido = pp.id_pedido);
+
+select * 
+  from tb_pedidos pe 
+ inner 
+  join tb_pedidos_produtos pp 
+    on (pe.id_pedido = pp.id_pedido) 
+ inner 
+  join tb_produtos pr 
+    on (pp.id_produto = pr.id_produto)
+
+    
+/* ALIAS */    
+select p.id_produto 
+     , p.produto
+     , p.valor
+     , dt.descricao_tecnica 
+  from tb_produtos p
+  left
+  join tb_descricoes_tecnicas dt
+    on p.id_produto = dt.id_produto 
+
+    
+    
+    
+    
+    
