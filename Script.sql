@@ -86,3 +86,22 @@ INSERT INTO tb_pedidos(id_cliente) VALUES(2);
 INSERT INTO tb_pedidos_produtos(id_pedido, id_produto) VALUES(3,1);
 
 
+INSERT INTO tb_clientes(nome, idade) VALUES('João', 30);
+INSERT INTO tb_clientes(nome, idade) VALUES('Maria', 45);
+INSERT INTO tb_clientes(nome, idade) VALUES('Fernanda', 21);
+INSERT INTO tb_clientes(nome, idade) VALUES('Marcos', 32);
+INSERT INTO tb_clientes(nome, idade) VALUES('Gustavo', 16);
+INSERT INTO tb_clientes(nome, idade) VALUES('Laura', 25);
+INSERT INTO tb_clientes(nome, idade) VALUES('Rosa', 27);
+INSERT INTO tb_clientes(nome, idade) VALUES('Aline', 23);
+INSERT INTO tb_clientes(nome, idade) VALUES('Talita', 25);
+
+/* LEFT JOIN */
+select *
+  from tb_clientes c
+  left
+  join tb_pedidos p
+    on (c.id_cliente = p.id_cliente) 
+
+
+
